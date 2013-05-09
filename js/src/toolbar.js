@@ -25,6 +25,8 @@ l_sch.Toolbar = Class.extend({
 			height		:	420,
 			color		:	'#ffffff'
 		};
+		this.maxPage	= 1;
+		this.curPage	= 1;
 		
 		
 		// Create Icons
@@ -34,8 +36,10 @@ l_sch.Toolbar = Class.extend({
 		this.createIcon("pin_24x24.png",			"ui-icon-pin");
 		this.createIcon("cursor_24x24.png",			"ui-icon-cursor");
 		this.createIcon("move_24x24.png",			"ui-icon-move");
-		this.createIcon("arrow_left_24x24.png",		"ui-icon-prev-page");
-		this.createIcon("arrow_right_24x24.png",	"ui-icon-next-page");
+		this.createIcon("arrow_left_alt1_24x24.png","ui-icon-prev-page");
+		this.createIcon("arrow_right_alt1_24x24.png","ui-icon-next-page");
+		this.createIcon("minus_alt_24x24.png",		"ui-icon-rem-page");
+		this.createIcon("plus_alt_24x24.png",		"ui-icon-add-page");
 		
 		
 		
@@ -143,7 +147,7 @@ l_sch.Toolbar = Class.extend({
 		this.stopGroup();		
 		
 
-		//start a group to select cursor
+		//start a group to page
 		this.startGroup('gp-cursor');
 		// Inject the Cursor Button and the callbacks
 		//
@@ -181,10 +185,12 @@ l_sch.Toolbar = Class.extend({
 		this.stopGroup();
 		
 		
-		//start a group to select cursor
+		this.createPageBar();
+		
+	},	
+	createPageBar: function(){
 		this.startGroup('gp-page');
-		// Inject the PrevPage Button and the callbacks
-		//
+		// Inject the PrevPage Button and the callback
 		this.createButton({
 			type	: "button",
 			id		: "prev-page",
@@ -195,14 +201,27 @@ l_sch.Toolbar = Class.extend({
 			}			
 		})
 		.click($.proxy(function(){
-		       
-		},this));
-		str = '<input type="text"id="page"size="3"name="page"class="'+this.klass+' ui-widget ui-state-default " role="button" />'
-		this.group.append($(str));
-		str = '<span class="'+this.klass+' ui-widget ui-state-default ui-toobar-text" role="button">/ 25</span>'
-		this.group.append($(str));
-		// Inject the Redo Button and the callbacks
-		//		
+			$('#cur-page').val(this.prevPage());
+		},this));		
+		//Inject page indicator and the callback
+		this.group.append($(
+			'<input type="text"id="cur-page"value="'+this.curPage+
+			'"size="3"name="page"class="'+this.klass+
+			' ui-widget ui-state-default"/>')
+			.change($.proxy(function(e){
+				val = $("#cur-page").val();
+				if(val!=this.curPage){
+					if(!this.gotoPage(val)){						
+						$("#cur-page").val(this.curPage);
+					}
+				}
+			},this)));
+		//Number of Sheets
+		this.group.append($(
+		'<span id="max-page"class="'+this.klass+
+				' ui-widget ui-state-default ui-toobar-text">/ '+
+				this.maxPage+'</span>'));	
+		// Inject the Next Page Button and the callback
 		this.createButton({
 			type	: "button",
 			id		: "next-page",
@@ -213,12 +232,63 @@ l_sch.Toolbar = Class.extend({
 			}			
 		})
 		.click($.proxy(function(){
-		       
+		    $('#cur-page').val(this.nextPage());
 		},this));
-		this.stopGroup();
-		
-		//file_menu.attachToButton('#pin-2');
-		
+		// Inject the Remove Page Button and the callback
+		this.createButton({
+			type	: "button",
+			id		: "remove-page",
+			text	: false,
+			label	: "Remove Page",
+			icons	: {
+				primary: "ui-icon-rem-page"
+			}			
+		})
+		.click($.proxy(function(){
+			this.removePage();
+			$('#max-page').empty();
+			$('#max-page').text('/ '+this.maxPage);
+			$('#cur-page').val(this.curPage);
+		},this));
+		// Inject the Add Page Button and the callback
+		this.createButton({
+			type	: "button",
+			id		: "add-page",
+			text	: false,
+			label	: "Add Page",
+			icons	: {
+				primary: "ui-icon-add-page"
+			}			
+		})
+		.click($.proxy(function(){
+			this.addPage();
+			$('#max-page').empty();
+			$('#max-page').text('/ '+this.maxPage);
+		},this));
+		this.stopGroup();		
+	},
+	addPage:function(){
+		return ++this.maxPage;		
+	},
+	removePage:function(){
+		if(this.maxPage>1)this.maxPage--;
+		if(this.curPage>this.maxPage)this.curPage = this.maxPage;
+		return this.maxPage;
+	},
+	nextPage:function(){
+		return ((this.curPage<this.maxPage)?++this.curPage:this.curPage);
+	},
+	prevPage:function(){
+		return ((this.curPage>1)?--this.curPage:this.curPage);		
+	},
+	gotoPage:function(page){
+		if(page>=1 && page<=this.maxPage){
+			this.curPage = page;
+			return true;
+		}
+		else{
+			return false;
+		}		
 	},
 	
 	createIcon:function(file_name,class_name){
@@ -226,6 +296,7 @@ l_sch.Toolbar = Class.extend({
 		this.css.append('.ui-button.ui-state-hover .ui-icon.'+class_name+'{background-image:url("./icons/cyan/'+file_name+'");width:24px;height:24px;}');			 
 		this.css.append('.ui-button.ui-state-active .ui-icon.'+class_name+'{background-image:url("./icons/gray_dark/'+file_name+'");width:24px;height:24px;}');			 
 	},
+	
 	
 	createButton:function(attr){
 		
@@ -511,4 +582,3 @@ l_sch.Menu = Class.extend({
 	}
 
 });
-
