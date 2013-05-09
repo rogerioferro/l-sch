@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	
+   	<link type="text/css" rel="stylesheet" href="./css/app.css" >
+   	<link type="text/css" rel="stylesheet" href="./css/toolbar.css" >
+	<link rel="stylesheet" href="themes/base/jquery.ui.all.css">
+	<link rel="stylesheet" href="themes/overcast/jquery.ui.theme.css">
+	
+   	<link rel="stylesheet" href="css/layout-default-latest.css" >	
+	<link rel="stylesheet" href="css/jquery.ui.selectmenu.css">
+	<link rel="stylesheet" href="js/lib/colorpicker/jquery.colorpicker.css">	
+	
+	<script src="js/lib/Class.js"></script>
+    	<script src="js/lib/jquery-2.0.0.js"></script>	
+	<script src="js/lib/jquery-migrate-1.1.1.js"></script>	
+
+	<script src="js/lib/jquery-ui-1.10.2.custom.min.js"></script>
+	<script src="js/lib/jquery.ui.selectmenu.js"></script>
+	<script src="js/lib/colorpicker/jquery.colorpicker.js"></script>
+	<script src="js/lib/colorpicker/swatches/jquery.ui.colorpicker-pantone.js"></script>
+	<script src="js/lib/colorpicker/parts/jquery.ui.colorpicker-rgbslider.js"></script>	
+	
+	<script src="js/lib/globalize.js"></script>	
+	<script src="js/lib/cultures/globalize.culture.pt-BR.js"></script>	
+	
+	<script src="js/lib/jquery.layout-latest.js"></script>
+
+	<script src="js/src/app.js"></script>
+	<script src="js/src/toolbar.js"></script>
+	
+	<script type="text/javascript">
+
+		$(window).load(function () {			
+			var app  = new l_sch.App();
+		});
+
+	</script>
+		
+</head>
+
+<body id="container">
+	
+
+	<div id="sitebar"></div>
+	<div id="l-sch-container">
+		<div id="toolbar" class="ui-widget"></div>
+		<div id="content">
+			<div id="library">
+				<div class="header ui-widget ui-widget-header">LIBRARY</div>
+			</div>
+			<div id="canvas"></div>
+		</div>
+	</div>	
+  
+</body>
+
+</html>	

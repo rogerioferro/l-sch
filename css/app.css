@@ -1,0 +1,87 @@
+/*
+*{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;	
+}
+*/
+#sitebar{
+	border:	0px solid #000 !important; 
+	background: #000000; 
+	overflow:	hidden;	
+}
+
+#container{
+	border:	0px solid #000 !important; 
+	padding:0px;
+	margin:0px;
+}
+
+#content{
+	padding:0px;
+	margin:0px;
+	border:0px;
+}
+
+#l-sch-container{
+	border:	0px solid #000 !important; 
+	padding:0px;
+	margin:0px;
+}
+
+#library {
+	padding:0px;
+	margin:0px;
+	border-top:0px solid #000 !important;		
+	border-left:0px solid #000 !important;		
+}
+
+#library .header{
+	height:32px;
+	line-height: 32px;
+	vertical-align: middle;
+	text-align:center;
+	font-weight: bold;
+		
+	/* background: #f1f1f1; */
+	border-top:	1px solid #aaacaf;
+	border-bottom:	1px solid #aaacaf;
+	margin:0px;	
+	
+}
+
+
+.ui-layout-resizer-west-closed {
+	background: url(../img/texture-2.png) 0 0 repeat !important;
+	border-width:0 !important;
+}
+
+.ui-layout-toggler-west-closed {
+	background: #f1f1f1 url(../icons/blue/arrow_right_16x16.png) no-repeat center center !important;
+	border-top:	1px solid #aaacaf !important;
+	border-bottom: 0px !important;
+}
+
+
+span.ui-layout-button-close-west{
+	background:  url(../icons/blue/arrow_left_16x16.png) no-repeat center center !important;
+}
+.ui-layout-toggler-west-open{
+	background: #f1f1f1 !important;
+}
+
+/*Custom buttons*/
+span.ui-layout-button-close {
+	position:	absolute;
+	top:		1;
+	width: 		20px;
+	height:		32px;
+	z-index:	2;
+	display:	block;
+	cursor: 	pointer;
+	border-top:	1px solid #aaacaf;
+}
+span.ui-layout-button-close-west	{ right: 1px; }
