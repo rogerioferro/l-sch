@@ -117,12 +117,22 @@ l_sch.App = Class.extend(
                 paneSelector            :   "#canvas"
             }
         });
+       
         //add custom Close Button
-        $("<span></span>")
+        $("<span/>")
             .attr("id", "west-closer")
-            .addClass("ui-widget")
+            .hover(
+                function(){
+                    $(this).addClass("ui-layout-button-close-hover");
+                },
+                function(){
+                    $(this).removeClass("ui-layout-button-close-hover");
+                }
+            )
             .prependTo("#content > #library");
+            
         this.contentLayout.addCloseBtn("#west-closer", "west");
+        
         //Enable popup menu on #toolbar
         this.appLayout.allowOverflow("north");
     },
@@ -144,7 +154,7 @@ l_sch.App = Class.extend(
                 value   :   "portrait"
             }).prop("checked",this.page_setup.orientation=='portrait'))
             .append($('<label/>').text('Portrait'))
-            .append($('<span/>').css("padding","30px"))
+            .append($('<span/>').css("padding-left","30px"))
             .append($('<input/>').attr({
                 name    :   "page-orientation",
                 type    :   "radio",
@@ -167,7 +177,8 @@ l_sch.App = Class.extend(
             .append($('<p/>').append($('<b/>').text('Page color')))
             .append($('<input/>').attr({
                 id      :   "page-color",
-                type    :   "text"
+                type    :   "text",
+                size    :   "7"
                 }).val(this.page_setup.color)
             );
         var form = $('<form/>')

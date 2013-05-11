@@ -31,22 +31,6 @@ l_sch.Toolbar = Class.extend({
         this.maxPage    = 1;
         this.curPage    = 1;
 
-
-        // Create Icons
-        this.createIcon("book_21x24.png",           "ui-icon-book");
-        this.createIcon("undo_alt_24x24.png",       "ui-icon-undo");
-        this.createIcon("redo_alt_24x24.png",       "ui-icon-redo");
-        this.createIcon("pin_24x24.png",            "ui-icon-pin");
-        this.createIcon("cursor_24x24.png",         "ui-icon-cursor");
-        this.createIcon("move_24x24.png",           "ui-icon-move");
-        this.createIcon("arrow_left_alt1_24x24.png","ui-icon-prev-page");
-        this.createIcon("arrow_right_alt1_24x24.png","ui-icon-next-page");
-        this.createIcon("minus_alt_24x24.png",      "ui-icon-rem-page");
-        this.createIcon("plus_alt_24x24.png",       "ui-icon-add-page");
-
-
-
-
         // Inject the Library Button and the callbacks
         //
         this.createButton({
@@ -55,15 +39,14 @@ l_sch.Toolbar = Class.extend({
             check   : true,
             text    : false,
             label   : "Library",
-            icons   : {primary: "ui-icon-book"}
+            icons   : {primary: "ui-icon-toolbar-libray"}
         })
         .click($.proxy(function(){
             this.app.libraryShow($('#library').is(':checked'));
         },this));
 
         this.createFileBar();
-
-
+        
         this.startGroup('gp-document');
         // Inject the Undo Button and the callbacks
         //
@@ -72,7 +55,7 @@ l_sch.Toolbar = Class.extend({
             id      : "undo",
             text    : false,
             label   : "Undo",
-            icons   : {primary: "ui-icon-undo"}
+            icons   : {primary: "ui-icon-toolbar-undo"}
         })
         .click($.proxy(function(){
 
@@ -84,7 +67,7 @@ l_sch.Toolbar = Class.extend({
             id      : "redo",
             text    : false,
             label   : "Redo",
-            icons   : {primary: "ui-icon-redo"}
+            icons   : {primary: "ui-icon-toolbar-redo"}
         })
         .click($.proxy(function(){
 
@@ -102,7 +85,7 @@ l_sch.Toolbar = Class.extend({
             check   : true,
             text    : false,
             label   : "Cursor",
-            icons   : {primary: "ui-icon-cursor"}
+            icons   : {primary: "ui-icon-toolbar-cursor"}
         })
         .click($.proxy(function(){
         },this));
@@ -115,7 +98,7 @@ l_sch.Toolbar = Class.extend({
             check   : false,
             text    : false,
             label   : "Move",
-            icons   : {primary: "ui-icon-move"}
+            icons   : {primary: "ui-icon-toolbar-move"}
         })
         .click($.proxy(function(){
 
@@ -171,7 +154,7 @@ l_sch.Toolbar = Class.extend({
             id      : "prev-page",
             text    : false,
             label   : "Previus Page",
-            icons   : {primary: "ui-icon-prev-page"}
+            icons   : {primary: "ui-icon-toolbar-prev-page"}
         })
         .click($.proxy(function(){
             $('#cur-page').val(this.prevPage());
@@ -206,7 +189,7 @@ l_sch.Toolbar = Class.extend({
             id      : "next-page",
             text    : false,
             label   : "Next Page",
-            icons   : {primary: "ui-icon-next-page"}
+            icons   : {primary: "ui-icon-toolbar-next-page"}
         })
         .click($.proxy(function(){
             $('#cur-page').val(this.nextPage());
@@ -217,7 +200,7 @@ l_sch.Toolbar = Class.extend({
             id      : "remove-page",
             text    : false,
             label   : "Remove Page",
-            icons   : {primary: "ui-icon-rem-page"}
+            icons   : {primary: "ui-icon-toolbar-rem-page"}
         })
         .click($.proxy(function(){
             this.removePage();
@@ -231,7 +214,7 @@ l_sch.Toolbar = Class.extend({
             id      : "add-page",
             text    : false,
             label   : "Add Page",
-            icons   : {primary: "ui-icon-add-page"}
+            icons   : {primary: "ui-icon-toolbar-add-page"}
         })
         .click($.proxy(function(){
             this.addPage();
@@ -262,11 +245,6 @@ l_sch.Toolbar = Class.extend({
         else{
             return false;
         }
-    },
-    createIcon:function(file_name,class_name){
-        this.css.append('.ui-button .ui-icon.'+class_name+'{background-image:url("./icons/blue/'+file_name+'");width:24px;height:24px;}');
-        this.css.append('.ui-button.ui-state-hover .ui-icon.'+class_name+'{background-image:url("./icons/cyan/'+file_name+'");width:24px;height:24px;}');
-        this.css.append('.ui-button.ui-state-active .ui-icon.'+class_name+'{background-image:url("./icons/gray_dark/'+file_name+'");width:24px;height:24px;}');
     },
     createButton:function(attr){
         switch(attr.type)
@@ -302,7 +280,7 @@ l_sch.Toolbar = Class.extend({
             label   : attr.label,
             disabled    : attr.disabled,
             icons   : attr.icons
-        }).focus();
+        });
     },
     startGroup:function(group){
         this.toolbar_container.append($('<span id="'+group+'" class="'+this.klass+'"></span>'));

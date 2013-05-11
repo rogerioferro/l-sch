@@ -1,12 +1,12 @@
 
 #sitebar{
-    border: 0px solid #000 !important; 
+    border: 0px !important; 
     background: #000000; 
     overflow:   hidden; 
 }
 
 #container{
-    border: 0px solid #000 !important; 
+    border: 0px !important; 
     padding:0px;
     margin:0px;
 }
@@ -18,7 +18,7 @@
 }
 
 #l-sch-container{
-    border: 0px solid #000 !important; 
+    border: 0px !important; 
     padding:0px;
     margin:0px;
 }
@@ -26,8 +26,8 @@
 #library {
     padding:0px;
     margin:0px;
-    border-top:0px solid #000 !important;       
-    border-left:0px solid #000 !important;      
+    border-top:0px  !important;
+    border-left:0px  !important;
 }
 
 #library .header{
@@ -42,21 +42,20 @@
 }
 
 .ui-layout-resizer-west-closed {
-    background: url(../img/texture-2.png) 0 0 repeat !important;
-    border-width:0 !important;
+    border-width    :   0px !important;
 }
 
 /*Open button*/
 .ui-layout-toggler-west-closed {
-    background: #f1f1f1 url(../icons/blue/arrow_right_16x16.png) no-repeat center center !important;
-    border-top: 1px solid #aaacaf !important;
-    border-bottom: 0px !important;
+    border-bottom   :   0px !important;
+    margin          :   0px !important;
+    padding         :   0px !important;
 }
 
 /*Custom Close button*/
 span.ui-layout-button-close {
-    background:  url(../icons/blue/arrow_left_16x16.png) no-repeat center center !important;
     position    :   absolute;
+    top         :   1px;
     width       :   20px;
     height      :   32px;
     z-index     :   2;

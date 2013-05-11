@@ -1,0 +1,144 @@
+
+/**
+ * Library Panel Buttons Theme
+ **/
+
+/*slide open bar*/
+.ui-layout-resizer-west-closed {
+    background: url(img/texture.png) 0 0 repeat !important;
+}
+/*Custom Close button*/
+span.ui-layout-button-close {
+    background:  url(icons/default/arrow_left_16x16.png) no-repeat center center !important;
+}
+span.ui-layout-button-close.ui-layout-button-close-hover {
+    background:  url(icons/hover/arrow_left_16x16.png) no-repeat center center !important;
+}
+/*Open button*/
+.ui-layout-toggler-west-closed {
+    background: #f1f1f1 url(icons/default/arrow_right_16x16.png) no-repeat center center !important;
+}
+.ui-layout-toggler-west-closed.ui-layout-toggler-west-closed-hover {
+    background: #f1f1f1 url(icons/hover/arrow_right_16x16.png) no-repeat center center !important;
+}
+
+/**
+ * Toolbar custom icons Theme
+ **/
+ /*** Library ***/
+.ui-button .ui-icon.ui-icon-toolbar-libray{
+    background-image:url("./icons/default/book_alt_24x24.png");
+    width:24px;height:24px;
+}
+.ui-button.ui-state-hover .ui-icon.ui-icon-toolbar-libray{
+    background-image:url("./icons/hover/book_alt_24x24.png");
+    width:24px;height:24px;
+}
+.ui-button.ui-state-active .ui-icon.ui-icon-toolbar-libray{
+    background-image:url("./icons/active/book_alt_24x24.png");
+    width:24px;height:24px;
+}
+/*** Undo ***/
+.ui-button .ui-icon.ui-icon-toolbar-undo{
+    background-image:url("./icons/default/undo_alt_24x24.png");
+    width:24px;height:24px;
+}
+.ui-button.ui-state-hover .ui-icon.ui-icon-toolbar-undo{
+    background-image:url("./icons/hover/undo_alt_24x24.png");
+    width:24px;height:24px;
+}
+.ui-button.ui-state-active .ui-icon.ui-icon-toolbar-undo{
+    background-image:url("./icons/active/undo_alt_24x24.png");
+    width:24px;height:24px;
+}
+/*** Redo ***/
+.ui-button .ui-icon.ui-icon-toolbar-redo{
+    background-image:url("./icons/default/redo_alt_24x24.png");
+    width:24px;height:24px;
+}
+.ui-button.ui-state-hover .ui-icon.ui-icon-toolbar-redo{
+    background-image:url("./icons/hover/redo_alt_24x24.png");
+    width:24px;height:24px;
+}
+.ui-button.ui-state-active .ui-icon.ui-icon-toolbar-redo{
+    background-image:url("./icons/active/redo_alt_24x24.png");
+    width:24px;height:24px;
+}
+/*** Cursor ***/
+.ui-button .ui-icon.ui-icon-toolbar-cursor{
+    background-image:url("./icons/default/cursor_24x24.png");
+    width:24px;height:24px;
+}
+.ui-button.ui-state-hover .ui-icon.ui-icon-toolbar-cursor{
+    background-image:url("./icons/hover/cursor_24x24.png");
+    width:24px;height:24px;
+}
+.ui-button.ui-state-active .ui-icon.ui-icon-toolbar-cursor{
+    background-image:url("./icons/active/cursor_24x24.png");
+    width:24px;height:24px;
+}
+/*** Move ***/
+.ui-button .ui-icon.ui-icon-toolbar-move{
+    background-image:url("./icons/default/move_24x24.png");
+    width:24px;height:24px;
+}
+.ui-button.ui-state-hover .ui-icon.ui-icon-toolbar-move{
+    background-image:url("./icons/hover/move_24x24.png");
+    width:24px;height:24px;
+}
+.ui-button.ui-state-active .ui-icon.ui-icon-toolbar-move{
+    background-image:url("./icons/active/move_24x24.png");
+    width:24px;height:24px;
+}
+/*** Previous Page ***/
+.ui-button .ui-icon.ui-icon-toolbar-prev-page{
+    background-image:url("./icons/default/arrow_left_alt1_24x24.png");
+    width:24px;height:24px;
+}
+.ui-button.ui-state-hover .ui-icon.ui-icon-toolbar-prev-page{
+    background-image:url("./icons/hover/arrow_left_alt1_24x24.png");
+    width:24px;height:24px;
+}
+.ui-button.ui-state-active .ui-icon.ui-icon-toolbar-prev-page{
+    background-image:url("./icons/active/arrow_left_alt1_24x24.png");
+    width:24px;height:24px;
+}
+/*** Next Page ***/
+.ui-button .ui-icon.ui-icon-toolbar-next-page{
+    background-image:url("./icons/default/arrow_right_alt1_24x24.png");
+    width:24px;height:24px;
+}
+.ui-button.ui-state-hover .ui-icon.ui-icon-toolbar-next-page{
+    background-image:url("./icons/hover/arrow_right_alt1_24x24.png");
+    width:24px;height:24px;
+}
+.ui-button.ui-state-active .ui-icon.ui-icon-toolbar-next-page{
+    background-image:url("./icons/active/arrow_right_alt1_24x24.png");
+    width:24px;height:24px;
+}
+/*** Remove Page ***/
+.ui-button .ui-icon.ui-icon-toolbar-rem-page{
+    background-image:url("./icons/default/minus_alt_24x24.png");
+    width:24px;height:24px;
+}
+.ui-button.ui-state-hover .ui-icon.ui-icon-toolbar-rem-page{
+    background-image:url("./icons/hover/minus_alt_24x24.png");
+    width:24px;height:24px;
+}
+.ui-button.ui-state-active .ui-icon.ui-icon-toolbar-rem-page{
+    background-image:url("./icons/active/minus_alt_24x24.png");
+    width:24px;height:24px;
+}
+/*** Add Page ***/
+.ui-button .ui-icon.ui-icon-toolbar-add-page{
+    background-image:url("./icons/default/plus_alt_24x24.png");
+    width:24px;height:24px;
+}
+.ui-button.ui-state-hover .ui-icon.ui-icon-toolbar-add-page{
+    background-image:url("./icons/hover/plus_alt_24x24.png");
+    width:24px;height:24px;
+}
+.ui-button.ui-state-active .ui-icon.ui-icon-toolbar-add-page{
+    background-image:url("./icons/active/plus_alt_24x24.png");
+    width:24px;height:24px;
+}
