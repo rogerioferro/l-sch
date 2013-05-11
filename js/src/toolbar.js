@@ -46,35 +46,11 @@ l_sch.Toolbar = Class.extend({
         },this));
 
         this.createFileBar();
-        
-        this.startGroup('gp-document');
-        // Inject the Undo Button and the callbacks
-        //
-        this.createButton({
-            type    : "button",
-            id      : "undo",
-            text    : false,
-            label   : "Undo",
-            icons   : {primary: "ui-icon-toolbar-undo"}
-        })
-        .click($.proxy(function(){
-
-        },this));
-        // Inject the Redo Button and the callbacks
-        //
-        this.createButton({
-            type    : "button",
-            id      : "redo",
-            text    : false,
-            label   : "Redo",
-            icons   : {primary: "ui-icon-toolbar-redo"}
-        })
-        .click($.proxy(function(){
-
-        },this));
-        this.stopGroup();
-        
-        //start a group to page
+        this.createDocumentBar();
+        this.createCursorBar();        
+        this.createPageBar();
+    },
+    createCursorBar: function(){
         this.startGroup('gp-cursor');
         // Inject the Cursor Button and the callbacks
         //
@@ -101,11 +77,34 @@ l_sch.Toolbar = Class.extend({
             icons   : {primary: "ui-icon-toolbar-move"}
         })
         .click($.proxy(function(){
-
         },this));
-        //stop select cursor group
         this.stopGroup();
-        this.createPageBar();
+    },
+    createDocumentBar: function(){
+        this.startGroup('gp-document');
+        // Inject the Undo Button and the callbacks
+        //
+        this.createButton({
+            type    : "button",
+            id      : "undo",
+            text    : false,
+            label   : "Undo",
+            icons   : {primary: "ui-icon-toolbar-undo"}
+        })
+        .click($.proxy(function(){
+        },this));
+        // Inject the Redo Button and the callbacks
+        //
+        this.createButton({
+            type    : "button",
+            id      : "redo",
+            text    : false,
+            label   : "Redo",
+            icons   : {primary: "ui-icon-toolbar-redo"}
+        })
+        .click($.proxy(function(){
+        },this));
+        this.stopGroup();
     },
     createFileBar: function(){
         // File menu itens and Callbacks
