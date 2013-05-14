@@ -34,8 +34,7 @@ l_sch.App = Class.extend(
         };
         //this.view    = new l_sch.View("canvas");
         this.toolbar = new l_sch.Toolbar("toolbar",this);
-        this.createLayout();
-
+        this.createLayout();        
     },
     /**
      *  libraryShow:
@@ -149,29 +148,31 @@ l_sch.App = Class.extend(
         var orientation = $('<fildset/>')
             .append($('<p/>').append($('<b/>').text('Orientation')))
             .append($('<input/>').attr({
+                id      :   "page-portrait",
                 name    :   "page-orientation",
                 type    :   "radio",
                 value   :   "portrait"
             }).prop("checked",this.page_setup.orientation=='portrait'))
-            .append($('<label/>').text('Portrait'))
+            .append($('<label for="page-portrait"/>').text('Portrait'))
             .append($('<span/>').css("padding-left","30px"))
             .append($('<input/>').attr({
+                id      :   "page-landscape",
                 name    :   "page-orientation",
                 type    :   "radio",
                 value   :   "landscape"
             }).prop("checked",this.page_setup.orientation=='landscape'))
-            .append($('<label/>').text('Landscape'));
+            .append($('<label for="page-landscape"/>').text('Landscape'));
         var paper_size  = $('<fildset/>')
             .append($('<p/>').append($('<b/>').text('Paper size')))
             .append(this.getPapersDropdown('page-paper-size',this.page_setup.paper));
         var custom_size = $('<fildset id="custom-paper"/>')
             .append($('<p/>')
-                .append($('<label for="sp-width"/>').text('Width:'))
-                .append($('<input/>').attr({id:"sp-width",size:"6",class:"spinner"}))
-                .append($('<label for="sp-width"/>').text('cm'))
-                .append($('<label for="sp-height"/>').text('Height:'))
-                .append($('<input/>').attr({id:"sp-height",size:"6",class:"spinner"}))
-                .append($('<label for="sp-height"/>').text('cm'))
+                .append($('<label for="page-width"/>').text('Width:'))
+                .append($('<input/>').attr({id:"page-width",type:"text",size:"6",class:"spinner"}))
+                .append($('<label for="page-width"/>').text('cm'))
+                .append($('<label for="page-height"/>').text('Height:'))
+                .append($('<input/>').attr({id:"page-height",type:"text",size:"6",class:"spinner"}))
+                .append($('<label for="page-height"/>').text('cm'))
             );
         var page_color  = $('<fildset/>')
             .append($('<p/>').append($('<b/>').text('Page color')))
@@ -204,8 +205,8 @@ l_sch.App = Class.extend(
                             orientation = $('input:radio[name="page-orientation"]:checked').val();
                             console.log(orientation);
                             if(paper == 'custom'){
-                                width       = parseFloat($("#sp-width").spinner("value")) * 10.0;
-                                height      = parseFloat($("#sp-height").spinner("value"))* 10.0;
+                                width       = parseFloat($("#page-width").spinner("value")) * 10.0;
+                                height      = parseFloat($("#page-height").spinner("value"))* 10.0;
                             }
                             else{
                                 width       = this.papers[paper].width;
@@ -224,8 +225,8 @@ l_sch.App = Class.extend(
             step:   0.1,
             numberFormat:"n1",
         });
-        $("#sp-width").spinner("value",this.page_setup.width/10.0);
-        $("#sp-height").spinner("value",this.page_setup.height/10.0);
+        $("#page-width").spinner("value",this.page_setup.width/10.0);
+        $("#page-height").spinner("value",this.page_setup.height/10.0);
         $('select#page-paper-size').selectmenu({
             style:'popup',
             width: 200,

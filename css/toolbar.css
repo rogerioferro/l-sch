@@ -44,10 +44,10 @@ button.ui-button-text-only.ui-button-toolbar{
 
 /*fixed text*/
 span.ui-toobar-text.ui-button-toolbar{
-    display: inline-block;
-    position: relative;
-
-    height: 30px;
+    display     : inline-block;
+    position    : relative;
+    cursor      : default;
+    height      : 30px;
     line-height: 30px;
     vertical-align: middle;
     text-align:center;
@@ -66,20 +66,14 @@ span.ui-toobar-text.ui-button-toolbar{
 input[type="text"].ui-button-toolbar{
     display: inline-block;
     position: relative;
-    height: 28px;
-    margin-right: -1px;
-    margin-top: 1px;
+    margin-top: 0px;
     margin-bottom:0px;
-    margin-left:0px;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
     padding-top:1px;
     padding-bottom:1px;
     vertical-align: middle;
-
-    background: #ffffff !important;
-    color:#000000 !important;
-
     text-align:center;
-
 }
 
 .ui-button-toolbar.ui-button-toolbar .ui-button-text{

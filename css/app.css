@@ -1,4 +1,24 @@
 
+* {
+   -ms-user-select: none; /* IE 10+ */
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   user-select: none;
+}
+
+input[type="text"], .selectable {
+   -ms-user-select: auto;
+   -moz-user-select: auto;
+   -khtml-user-select: auto;
+   -webkit-user-select: auto;
+   user-select: auto;
+}
+
+div{
+    cursor      : default;
+}
+
 #sitebar{
     border: 0px !important; 
     background: #000000; 

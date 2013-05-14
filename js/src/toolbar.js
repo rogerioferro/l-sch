@@ -156,9 +156,18 @@ l_sch.Toolbar = Class.extend({
             icons   : {primary: "ui-icon-toolbar-prev-page"}
         })
         .click($.proxy(function(){
-            $('#cur-page').val(this.prevPage());
+            this.gotoPage(this.curPage-1);
         },this));
-        //Inject page indicator and the callback
+        
+        //inject number of page element
+        _page_number = $('<span/>')
+            .addClass(this.klass)
+            .addClass('ui-widget ui-state-default ui-toobar-text')
+            .appendTo(this.group);
+            
+        $('<span/>').text('Page').appendTo(_page_number);
+        
+        //Inject page indicator and the callbacks
         $('<input/>').attr({
             type    :   "text",
             id      :   "cur-page",
@@ -166,22 +175,23 @@ l_sch.Toolbar = Class.extend({
             })
             .addClass(this.klass)
             .addClass('ui-widget ui-state-default')
-            .val(this.curPage)
-            .appendTo(this.group)
+            .appendTo(_page_number)
+            .focusin(function(){
+                $(this).removeClass('ui-state-default')
+                $(this).addClass('ui-state-active')
+            })
+            .focusout(function(){
+                $(this).removeClass('ui-state-active')
+                $(this).addClass('ui-state-default')
+            })
             .change($.proxy(function(e){
-                val = $("#cur-page").val();
-                if(val!=this.curPage){
-                    if(!this.gotoPage(val)){
-                        $("#cur-page").val(this.curPage);
-                    }
-                }
+                val = Number($("#cur-page").val());
+                if(val!=this.curPage) this.gotoPage(val);
             },this));
         //Inject Number of Sheets
-        $('<span></span>').attr('id','max-page')
-            .addClass(this.klass)
-            .addClass('ui-widget ui-state-default ui-toobar-text')
-            .text('/ '+this.maxPage)
-            .appendTo(this.group);
+        $('<span/>').attr('id','max-page').appendTo(_page_number);
+            
+            
         // Inject the Next Page Button and the callback
         this.createButton({
             type    : "button",
@@ -191,7 +201,7 @@ l_sch.Toolbar = Class.extend({
             icons   : {primary: "ui-icon-toolbar-next-page"}
         })
         .click($.proxy(function(){
-            $('#cur-page').val(this.nextPage());
+            this.gotoPage(this.curPage+1);
         },this));
         // Inject the Remove Page Button and the callback
         this.createButton({
@@ -203,9 +213,6 @@ l_sch.Toolbar = Class.extend({
         })
         .click($.proxy(function(){
             this.removePage();
-            $('#max-page').empty();
-            $('#max-page').text('/ '+this.maxPage);
-            $('#cur-page').val(this.curPage);
         },this));
         // Inject the Add Page Button and the callback
         this.createButton({
@@ -217,33 +224,31 @@ l_sch.Toolbar = Class.extend({
         })
         .click($.proxy(function(){
             this.addPage();
-            $('#max-page').empty();
-            $('#max-page').text('/ '+this.maxPage);
         },this));
         this.stopGroup();
+        this.updatePageBar();
+    },
+    updatePageBar:function(){
+        $('#cur-page').val(this.curPage);
+        $('#max-page').empty().text('of '+this.maxPage);
+        $('#remove-page').button( "option", "disabled", this.maxPage == 1 );
+        $('#prev-page').button( "option", "disabled", this.curPage == 1 );
+        $('#next-page').button( "option", "disabled", this.curPage == this.maxPage );
     },
     addPage:function(){
-        return ++this.maxPage;
+        this.maxPage++;
+        this.updatePageBar();
     },
     removePage:function(){
         if(this.maxPage>1)this.maxPage--;
         if(this.curPage>this.maxPage)this.curPage = this.maxPage;
-        return this.maxPage;
-    },
-    nextPage:function(){
-        return ((this.curPage<this.maxPage)?++this.curPage:this.curPage);
-    },
-    prevPage:function(){
-        return ((this.curPage>1)?--this.curPage:this.curPage);
+        this.updatePageBar();
     },
     gotoPage:function(page){
         if(page>=1 && page<=this.maxPage){
             this.curPage = page;
-            return true;
         }
-        else{
-            return false;
-        }
+        this.updatePageBar();
     },
     createButton:function(attr){
         switch(attr.type)
