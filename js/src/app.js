@@ -32,9 +32,11 @@ l_sch.App = Class.extend(
             height      :   420,
             color       :   '#ffffff'
         };
-        //this.view    = new l_sch.View("canvas");
+        
+        this.view    = new l_sch.View("canvas",this);
         this.toolbar = new l_sch.Toolbar("toolbar",this);
-        this.createLayout();        
+
+        this.createLayout();
     },
     /**
      *  libraryShow:
@@ -105,7 +107,8 @@ l_sch.App = Class.extend(
                 spacing_open            :   3,
                 fxName                  :   "slide",
                 fxSpeed_open            :   100,
-                fxSpeed_close           :   400,
+                fxSpeed_close           :   500,
+                fxSettings_close: 		{ easing: "easeOutBounce" },
                 paneSelector            :   "#library"
             },
             center: {
@@ -113,6 +116,7 @@ l_sch.App = Class.extend(
                 closable                :   false,
                 spacing_open            :   0,
                 spacing_closed          :   0,
+                onresize                :   $.proxy(function(){this.view.resize();},this),
                 paneSelector            :   "#canvas"
             }
         });
@@ -214,6 +218,7 @@ l_sch.App = Class.extend(
                             }
                         }
                         this.dlgPageSetup.remove();
+                        this.view.updatePaper();
                     },this)
                 }
             });

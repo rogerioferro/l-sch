@@ -19,12 +19,12 @@ l_sch.Toolbar = Class.extend({
      */
     init:function(elementId,app){
         this.highlevel          = $("#"+elementId);
-        this.toolbar_container  = $('<div></div>');
-        this.menu_container     = $('<div></div>');
+        this.toolbar_container  = $('<div/>');
+        this.menu_container     = $('<div/>');
         this.highlevel.append(this.toolbar_container);
         this.highlevel.append(this.menu_container);
         this.app    = app;
-        this.css    = $("<style type='text/css'> </style>").appendTo("head");
+        //this.css    = $("<style type='text/css'> </style>").appendTo("head");
         this.group  = undefined;
         this.klass  = "ui-button-toolbar";
 

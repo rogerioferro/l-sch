@@ -1,89 +1,119 @@
-
 * {
-   -ms-user-select: none; /* IE 10+ */
-   -moz-user-select: -moz-none;
-   -khtml-user-select: none;
-   -webkit-user-select: none;
-   user-select: none;
+    -webkit-touch-callout   : none;
+    -ms-user-select         : none; /* IE 10+ */
+    -moz-user-select        : -moz-none;
+    -khtml-user-select      : none;
+    -webkit-user-select     : none;
+    /* Currently not supported in Opera but will be soon */
+    -o-user-select          : none;
+    user-select             : none;
 }
 
 input[type="text"], .selectable {
-   -ms-user-select: auto;
-   -moz-user-select: auto;
-   -khtml-user-select: auto;
-   -webkit-user-select: auto;
-   user-select: auto;
+    -webkit-touch-callout   : auto;
+    -ms-user-select         : auto;
+    -moz-user-select        : auto;
+    -khtml-user-select      : auto;
+    -webkit-user-select     : auto;
+    -o-user-select          : auto;
+    user-select             : auto;
 }
 
 div{
-    cursor      : default;
+    cursor                  : default;
 }
 
 #sitebar{
-    border: 0px !important; 
-    background: #000000; 
-    overflow:   hidden; 
+    border                  : 0px !important; 
+    background              : #000000; 
+    overflow                : hidden; 
 }
 
 #container{
-    border: 0px !important; 
-    padding:0px;
-    margin:0px;
+    border                  : 0px !important; 
+    padding                 : 0px;
+    margin                  : 0px;
 }
 
 #content{
-    padding:0px;
-    margin:0px;
-    border:0px;
+    padding                 : 0px;
+    margin                  : 0px;
+    border                  : 0px;
 }
 
 #l-sch-container{
-    border: 0px !important; 
-    padding:0px;
-    margin:0px;
+    border                  : 0px !important; 
+    padding                 : 0px;
+    margin                  : 0px;
 }
 
 #library {
-    padding:0px;
-    margin:0px;
-    border-top:0px  !important;
-    border-left:0px  !important;
+    padding                 : 0px;
+    margin                  : 0px;
+    border-top              : 0px  !important;
+    border-left             : 0px  !important;
 }
 
 #library .header{
-    height          :   32px;
-    line-height     :   32px;
-    vertical-align  :   middle;
-    text-align      :   center;
-    font-weight     :   bold;
-    border-left     :   0px solid;
-    border-right    :   0px solid;
-    margin          :   0px;     
+    height                  : 32px;
+    line-height             : 32px;
+    vertical-align          : middle;
+    text-align              : center;
+    font-weight             : bold;
+    border-left             : 0px solid;
+    border-right            : 0px solid;
+    margin                  : 0px;     
+}
+
+#canvas{
+    padding:0px;
+    margin:0px;
+    background-color:#EBEBEB !important;
+    width:0;
+    height:0;
+/*
+    -webkit-tap-highlight-color : rgba(0,0,0,0);
+*/
 }
 
 .ui-layout-resizer-west-closed {
-    border-width    :   0px !important;
+    border-width            : 0px !important;
 }
 
 /*Open button*/
 .ui-layout-toggler-west-closed {
-    border-bottom   :   0px !important;
-    margin          :   0px !important;
-    padding         :   0px !important;
+    border-bottom           : 0px !important;
+    margin                  : 0px !important;
+    padding                 : 0px !important;
 }
 
 /*Custom Close button*/
 span.ui-layout-button-close {
-    position    :   absolute;
-    top         :   1px;
-    width       :   20px;
-    height      :   32px;
-    z-index     :   2;
-    display     :   block;
-    cursor      :   pointer;
-    border      :   0px;
-    margin      :   0px;
+    position                : absolute;
+    top                     : 1px;
+    width                   : 20px;
+    height                  : 32px;
+    z-index                 : 2;
+    display                 : block;
+    cursor                  : pointer;
+    border                  : 0px;
+    margin                  : 0px;
 }
 span.ui-layout-button-close-west{
-    right       :   0px; 
+    right                   : 0px; 
 }
+
+/*scrollbar in google chrome like google docs*/
+::-webkit-scrollbar{height:16px;overflow:visible;width:16px}
+::-webkit-scrollbar-button{height:0;width:0}
+::-webkit-scrollbar-track{background-clip:padding-box;border:solid transparent;border-width:0 0 0 7px}
+::-webkit-scrollbar-track:horizontal{border-width:7px 0 0}
+::-webkit-scrollbar-track:hover{background-color:rgba(0,0,0,.05);box-shadow:inset 1px 1px 0 rgba(0,0,0,.1)}
+::-webkit-scrollbar-track:active{background-color:rgba(0,0,0,.05);box-shadow:inset 1px -1px 0 rgba(0,0,0,.14),inset -1px 1px 0 rgba(0,0,0,.07)}
+::-webkit-scrollbar-track:horizontal:hover{box-shadow:inset -1px 1px 0 rgba(0,0,0,.14),inset 1px -1px 0 rgba(0,0,0,.07)}
+::-webkit-scrollbar-track:vertical:hover{box-shadow:inset 1px 1px 0 rgba(0,0,0,.14),inset -1px -1px 0 rgba(0,0,0,.07)}
+::-webkit-scrollbar-thumb{background-color:rgba(0,0,0,.2);background-clip:padding-box;border:solid transparent;border-width:0 0 0 7px;min-height:28px;padding:100px 0 0;box-shadow:inset 1px 1px 0 rgba(0,0,0,.1),inset -1px -1px 0 rgba(0,0,0,.07)}
+::-webkit-scrollbar-thumb:hover{background-color:rgba(0,0,0,.4);box-shadow:inset 1px 1px 1px rgba(0,0,0,.25)}
+::-webkit-scrollbar-thumb:horizontal{border-width:7px 0 0;padding:0 0 0 100px;box-shadow:inset -1px 1px 0 rgba(0,0,0,.1),inset 1px -1px 0 rgba(0,0,0,.07)}
+::-webkit-scrollbar-thumb:active{background-color:rgba(0,0,0,.5);box-shadow:inset 1px 1px 3px rgba(0,0,0,.35)}
+::-webkit-scrollbar-corner{background:transparent}
